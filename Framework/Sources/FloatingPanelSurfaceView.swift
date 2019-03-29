@@ -119,8 +119,10 @@ public class FloatingPanelSurfaceView: UIView {
         updateLayers()
         updateContentViewMask()
 
-        contentView?.layer.borderColor = borderColor?.cgColor
-        contentView?.layer.borderWidth = borderWidth
+        if borderColor != nil, borderWidth > 0 {
+            contentView?.layer.borderColor = borderColor?.cgColor
+            contentView?.layer.borderWidth = borderWidth
+        }
         contentView?.frame = bounds
     }
 
